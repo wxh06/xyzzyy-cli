@@ -1,5 +1,5 @@
 # 校园智障英语
-This is a script written in Python for finishing the homework automatically on an educational platform in China. If you see this repository by mistake, I'm sorry that it may not be useful to you.
+This is a Python script for finishing the homework automatically on an educational platform in China. If you see this repository by mistake, I'm sorry that it may not be useful to you.
 
 用于完成[校园智慧英语平台](http://pc.pjjy.com/)作业的自动化脚本
 
