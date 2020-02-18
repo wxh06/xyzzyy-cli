@@ -10,10 +10,10 @@ UNIT = input('Unit: ')
 try:
     expScore = 0
     while True:
-        wordTrainUnfinished = loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp', b'sAct=GetWordTrainUnfinished&sTrainFrom=train', headers={'Cookie': COOKIE})).read())
-        assert wordTrainUnfinished['sRet'] == 'succeeded', wordTrainUnfinished
-        if wordTrainUnfinished['iTrainId']:
-            assert loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp?sAct=DelWordTrain', ('iTrainId=' + wordTrainUnfinished['iTrainId']).encode(), headers={'Cookie': COOKIE})).read())['sRet'] == 'succeeded'
+        # wordTrainUnfinished = loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp', b'sAct=GetWordTrainUnfinished&sTrainFrom=train', headers={'Cookie': COOKIE})).read())
+        # assert wordTrainUnfinished['sRet'] == 'succeeded', wordTrainUnfinished
+        # if wordTrainUnfinished['iTrainId']:
+        #     assert loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp?sAct=DelWordTrain', ('iTrainId=' + wordTrainUnfinished['iTrainId']).encode(), headers={'Cookie': COOKIE})).read())['sRet'] == 'succeeded'
         wordTrain = loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp?sAct=BeginWordTrain', ('sSubmodule=train&sTrainMode=batch&iTrainType=2&sSummary=%20&iUnit=' + UNIT).encode(), headers={'Cookie': COOKIE})).read())
         assert wordTrain['sRet'] == 'succeeded', wordTrain
         wordContent = loads(urlopen(Request('http://114.118.97.15/data/module/word/all.asp?sAct=GetWordContent', ('iUnitId=' + UNIT).encode(), headers={'Cookie': COOKIE})).read())
