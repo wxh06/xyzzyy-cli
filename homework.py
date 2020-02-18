@@ -7,7 +7,7 @@ from urllib.request import urlopen, Request
 COOKIE = 'pj=' + input('pj=')
 
 try:
-    homeworkList = loads(urlopen(Request('http://114.118.97.15/data/module/homework/all.asp?sAct=GetHomeworkListByStudent', ('iIsExam=0&iPageBegin=0&iPageCount=' + loads(urlopen(Request('http://114.118.97.15/data/module/homework/all.asp?sAct=GetHomeworkListByStudent', ('iIsExam=0').encode(), headers={'Cookie': COOKIE})).read())['iCount']).encode(), headers={'Cookie': COOKIE})).read())
+    homeworkList = loads(urlopen(Request('http://114.118.97.15/data/module/homework/all.asp?sAct=GetHomeworkListByStudent', ('iIsExam=0&iPageBegin=0&iPageCount=' + loads(urlopen(Request('http://114.118.97.15/data/module/homework/all.asp?sAct=GetHomeworkListByStudent', b'iIsExam=0', headers={'Cookie': COOKIE})).read())['iCount']).encode(), headers={'Cookie': COOKIE})).read())
     print(homeworkList)
     assert homeworkList['sRet'] == 'succeeded', homeworkList
     for homework in homeworkList['aHomework']:
