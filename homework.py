@@ -14,7 +14,7 @@ try:
         if not homework['sTimeFlag'] and not int(homework['iFinished']):
             courseHomework = loads(urlopen(Request(f'{SITE}/data/module/course/all.asp?sAct=BeginCourseHomework', ('iHomeworkId=' + homework['iHomeworkId']).encode(), headers={'Cookie': COOKIE})).read())
             assert courseHomework['sRet'] == 'succeeded', courseHomework
-            courseTrainDetails = loads(urlopen(Request(f'{SITE}/data/module/course/all.asp?sAct=AddCourseTrainDetails', ('iTrainId=' + courseHomework['iTrainId'] + '&iHomeworkId=' + homework['iHomeworkId'] + '&iPageId=' + courseHomework['sQuestionIds'] + '&sSerialIds=' + '0' + '&sAnswers=' + '%0D%0A%09+%09%0D%0A' + '&sSolutions=' + '%0D%0A%09+%09%0D%0A' + '&sScores=' + '100').encode(), headers={'Cookie': COOKIE})).read())
+            courseTrainDetails = loads(urlopen(Request(f'{SITE}/data/module/course/all.asp?sAct=AddCourseTrainDetails', ('iTrainId=' + courseHomework['iTrainId'] + '&iHomeworkId=' + homework['iHomeworkId'] + '&iPageId=' + courseHomework['sQuestionIds'] + '&sSerialIds=0&sAnswers=%0D%0A%09+%09%0D%0A&sSolutions=%0D%0A%09+%09%0D%0A&sScores=100').encode(), headers={'Cookie': COOKIE})).read())
             assert courseTrainDetails['sRet'] == 'succeeded', courseTrainDetails
 except KeyboardInterrupt:
     print()
