@@ -7,12 +7,15 @@ This is a Python script for finishing the homework automatically on an education
 
 目前仅适配了上海民办南模中学的[`http://114.118.97.15`](http://114.118.97.15/page/pc/?db=site_20180305000000)，其它学校大同小异，欢迎各校大佬 [pr](https://github.com/wangxinhe2006/xyzzyy/pulls)。如遇问题，请[创建议题](https://github.com/wangxinhe2006/xyzzyy/issues/new)（[issue](https://github.com/wangxinhe2006/xyzzyy/issues)）以便修复。
 
+## Requirements
+Python 3.6 or later: <https://www.python.org/downloads/>
+
 ## Usage
 #### 下载
 Download ZIP:
-https://github.com/wangxinhe2006/xyzzyy/archive/master.zip
+<https://github.com/wangxinhe2006/xyzzyy/archive/master.zip>
 
-Clone via Git:
+[Clone](https://git-scm.com/docs/git-clone) via [Git](https://git-scm.com/):
 ```sh
 git clone https://github.com/wangxinhe2006/xyzzyy.git
 git clone git@github.com:wangxinhe2006/xyzzyy.git
