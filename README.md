@@ -8,6 +8,16 @@ This is a Python script for finishing the homework automatically on an education
 目前仅适配了上海民办南模中学的[`http://114.118.97.15`](http://114.118.97.15/page/pc/?db=site_20180305000000)，其它学校大同小异，欢迎各校大佬 [pr](https://github.com/wangxinhe2006/xyzzyy/pulls)。如遇问题，请[创建议题](https://github.com/wangxinhe2006/xyzzyy/issues/new)（[issue](https://github.com/wangxinhe2006/xyzzyy/issues)）以便修复。
 
 ## Usage
+#### 下载
+Download ZIP:
+https://github.com/wangxinhe2006/xyzzyy/archive/master.zip
+
+Clone via Git:
+```sh
+git clone https://github.com/wangxinhe2006/xyzzyy.git
+git clone git@github.com:wangxinhe2006/xyzzyy.git
+```
+#### 运行
 1. 运行位于`xyzzyy/__init__.py`处的 Python 脚本。
 2. 输入站点及数据库。对于上海民办南模中学，留空以使用默认值即可。
 3. 输入姓名。
@@ -16,3 +26,8 @@ This is a Python script for finishing the homework automatically on an education
 ### Legacy
 1. 在浏览器中登录校园智慧英语后，复制名为`pj`的 Cookie
 2. 运行`legacy`目录中相应的 Python 脚本，按提示输入站点地址及名为`pj`的 Cookie 等信息
+
+## [License](LICENSE)
+Copyright &copy; 2020 [汪心禾](https://github.com/wangxinhe2006), Licensed under [the **MIT License**](https://choosealicense.com/licenses/mit/)
+
+根据[**麻省理工学院许可协议**](https://opensource.org/licenses/MIT)进行授权，在您使用、复制或再次分发时理当保留许可协议和版权声明的副本
