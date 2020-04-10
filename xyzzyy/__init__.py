@@ -53,7 +53,6 @@ if __name__ == "__main__":
             break
     else:
         raise ValueError
-    menu = Menu(['Exam', 'Word train'])()
     try:
         menu = Menu(['Exam', 'Word train'])()
     except Exception:
