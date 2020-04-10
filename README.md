@@ -24,7 +24,7 @@ git clone git@github.com:wangxinhe2006/xyzzyy.git
 1. 运行位于[`xyzzyy/__init__.py`](xyzzyy/__init__.py)处的 Python 脚本。
 2. 输入站点及数据库。对于上海民办南模中学，留空以使用默认值即可。
 3. 输入姓名。
-4. 使用键盘上的左右箭头（<kbd>←</kbd><kbd>→</kbd>）选择需要进行的操作，按回车键（<kbd>return</kbd> or <kbd>enter</kbd>）开始。部分操作开始之前，将会征询用户意见。
+4. 若支持，则使用键盘上的左右箭头（<kbd>←</kbd><kbd>→</kbd>）选择需要进行的操作；否则，请完整键入所给选项之一。按回车键（<kbd>return</kbd> or <kbd>enter</kbd>）开始。部分操作开始之前，将会征询用户意见。
 
 ### Legacy
 1. 在浏览器中登录校园智慧英语后，复制名为`pj`的 Cookie

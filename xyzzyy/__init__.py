@@ -54,8 +54,15 @@ if __name__ == "__main__":
     else:
         raise ValueError
     menu = Menu(['Exam', 'Word train'])()
-    if menu == 'Exam':
-        show_all = {'是': True, '否': False}[Menu(['是', '否'], '显示所有')()]
+    try:
+        menu = Menu(['Exam', 'Word train'])()
+    except Exception:
+        menu = input('\r`exam` or `word train`: ')
+    if menu.strip().lower() == 'exam':
+        try:
+            show_all = {'是': True, '否': False}[Menu(['是', '否'], '显示所有')()]
+        except Exception:
+            show_all = {'': True, 'y': True, 'n': False}[input('\r显示所有（Y/n）：').strip().lower()]
         for exam in s.data.homework_GetHomeworkListByStudent(
             iIsExam=1, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=1)['iCount']
         )['aHomework']:
@@ -66,7 +73,7 @@ if __name__ == "__main__":
                 for process in examContent['aProcess']:
                     print('', process['iOrder'], process['sAnswer'], sep='\t')
                 print()
-    elif menu == 'Word train':
+    elif menu.strip().lower() == 'word train':
         unit = input('单元: ')
         try:
             expScore = 0
