@@ -2,7 +2,7 @@
 
 from json import loads
 import re
-from urllib.parse import urlencode
+from urllib.parse import parse_qsl, urlencode
 from urllib.request import urlopen, Request
 
 from select_menu import Menu
@@ -10,9 +10,9 @@ from select_menu import Menu
 
 class Session:
 
-    def __init__(self, site, cookie):
+    def __init__(self, site, pj):
         self.site = site
-        self.cookie = cookie
+        self.pj = pj
 
         class Data:
             def __init__(self, session):
@@ -33,7 +33,7 @@ class Session:
         data = loads(urlopen(Request(
             f'{self.site}/data/module/{module}/all.asp?sAct={sAct}',
             urlencode(kwargs).encode(),
-            headers={'Cookie': self.cookie}
+            headers={'Cookie': f'pj={self.pj}'}
         )).read())
         assert data['sRet'] == 'succeeded', data
         return data
@@ -42,19 +42,30 @@ class Session:
 if __name__ == "__main__":
     s = Session(
         input('站点（http://114.118.97.15）：') or 'http://114.118.97.15',
-        'pj=' + (input('Cookie: pj=') or 'sClassIds=&iClassId=102&sGradeIds=&iUserId=10000095&iGroupId=300&sAllGradeIds=16%2C21%2C22%2C23&iGradeId=22&sDatabase=site%5F20180305000000')
+        f"iUserId=0&iGroupId=300&sDatabase={input('数据库（site_20180305000000）：') or 'site%5F20180305000000'}"
     )
+    name = input('姓名：')
+    for student in s.data.school_GetStudentList()['aUser']:
+        if student['sName'] == name:
+            pj = dict(parse_qsl(s.pj))
+            pj['iUserId'] = student['iUserId']
+            s.pj = urlencode(pj)
+            break
+    else:
+        raise ValueError
     menu = Menu(['Exam', 'Word train'])()
     if menu == 'Exam':
+        show_all = {'是': True, '否': False}[Menu(['是', '否'], '显示所有')()]
         for exam in s.data.homework_GetHomeworkListByStudent(
             iIsExam=1, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=1)['iCount']
         )['aHomework']:
-            examContent = s.data.exam_GetExamContent(iExamId=exam['sQuestionIds'])
-            for content in examContent['aContent']:
-                print(content['sTitle'])
-            for process in examContent['aProcess']:
-                print('', process['iOrder'], process['sAnswer'], sep='\t')
-            print()
+            if show_all or not exam['sTimeFlag'] and not int(exam['iFinished']):
+                examContent = s.data.exam_GetExamContent(iExamId=exam['sQuestionIds'])
+                for content in examContent['aContent']:
+                    print(content['sTitle'])
+                for process in examContent['aProcess']:
+                    print('', process['iOrder'], process['sAnswer'], sep='\t')
+                print()
     elif menu == 'Word train':
         unit = input('单元: ')
         try:
