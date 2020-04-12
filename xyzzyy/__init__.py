@@ -2,9 +2,9 @@
 
 from urllib.parse import parse_qsl, urlencode
 
-from actions import exam, word_train
-from select_menu import Menu
-from session import Session
+from xyzzyy.actions import exam, word_train
+from xyzzyy.select_menu import Menu
+from xyzzyy.session import Session
 
 
 if __name__ == "__main__":
