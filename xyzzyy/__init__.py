@@ -2,6 +2,7 @@
 
 from urllib.parse import parse_qsl, urlencode
 
+from actions import word_train
 from select_menu import Menu
 from session import Session
 
@@ -44,14 +45,7 @@ if __name__ == "__main__":
         try:
             expScore = 0
             while True:
-                expScore += int(
-                    s.data.word_AddWordTrainDetails(
-                        iUnit=unit, iTrainId=s.data.word_BeginWordTrain(
-                            sSubmodule='train', sTrainMode='batch', iTrainType='2', iUnit=unit, sSummary='%00'
-                        )['iTrainId'],
-                        sSerialIds='0', sAnswers='%00', sSolutions='%00', sIsPasses='1', sScores='100'
-                    )['iExpScore']
-                )
+                expScore += int(word_train(s, unit)['iExpScore'])
                 print('\r' + str(expScore), end='', flush=True)
         except KeyboardInterrupt:
             print()
