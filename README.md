@@ -1,11 +1,11 @@
 # 校园智障英语
-[![Build Status](https://www.travis-ci.org/wangxinhe2006/xyzzyy.svg)](https://www.travis-ci.org/wangxinhe2006/xyzzyy)
+[![Build Status](https://www.travis-ci.org/wangxinhe2006/xyzzyy-cli.svg)](https://www.travis-ci.org/wangxinhe2006/xyzzyy-cli)
 
 This is a Python script for finishing the homework automatically on an educational platform in China. If you see this repository by mistake, I'm sorry that it may not be useful to you.
 
 用于完成[校园智慧英语平台](http://pc.pjjy.com/)作业的自动化脚本
 
-目前仅适配了上海民办南模中学的[`http://114.118.97.15`](http://114.118.97.15/page/pc/?db=site_20180305000000)，其它学校大同小异，欢迎各校大佬 [pr](https://github.com/wangxinhe2006/xyzzyy/pulls)。如遇问题，请[创建议题](https://github.com/wangxinhe2006/xyzzyy/issues/new)（[issue](https://github.com/wangxinhe2006/xyzzyy/issues)）以便修复。
+目前仅适配了上海民办南模中学的[`http://114.118.97.15`](http://114.118.97.15/page/pc/?db=site_20180305000000)，其它学校大同小异，欢迎各校大佬 [pr](https://github.com/wangxinhe2006/xyzzyy-cli/pulls)。如遇问题，请[创建议题](https://github.com/wangxinhe2006/xyzzyy-cli/issues/new)（[issue](https://github.com/wangxinhe2006/xyzzyy-cli/issues)）以便修复。
 
 ## Requirements
 Python 3.6 or later: <https://www.python.org/downloads/>
@@ -13,12 +13,12 @@ Python 3.6 or later: <https://www.python.org/downloads/>
 ## Usage
 #### 下载
 Download ZIP:
-<https://github.com/wangxinhe2006/xyzzyy/archive/master.zip>
+<https://github.com/wangxinhe2006/xyzzyy-cli/archive/master.zip>
 
 [Clone](https://git-scm.com/docs/git-clone) via [Git](https://git-scm.com/):
 ```sh
-git clone https://github.com/wangxinhe2006/xyzzyy.git
-git clone git@github.com:wangxinhe2006/xyzzyy.git
+git clone https://github.com/wangxinhe2006/xyzzyy-cli.git
+git clone git@github.com:wangxinhe2006/xyzzyy-cli.git
 ```
 #### 运行
 1. 运行位于[`xyzzyy/__init__.py`](xyzzyy/__init__.py)处的 Python 脚本。
