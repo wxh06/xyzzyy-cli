@@ -2,7 +2,7 @@
 
 from urllib.parse import parse_qsl, urlencode
 
-from actions import word_train
+from actions import exam, word_train
 from select_menu import Menu
 from session import Session
 
@@ -30,16 +30,12 @@ if __name__ == "__main__":
             show_all = {'是': True, '否': False}[Menu(['是', '否'], '显示所有')()]
         except Exception:
             show_all = {'': True, 'y': True, 'n': False}[input('\r显示所有（Y/n）：').strip().lower()]
-        for exam in s.data.homework_GetHomeworkListByStudent(
-            iIsExam=1, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=1)['iCount']
-        )['aHomework']:
-            if show_all or not exam['sTimeFlag'] and not int(exam['iFinished']):
-                examContent = s.data.exam_GetExamContent(iExamId=exam['sQuestionIds'])
-                for content in examContent['aContent']:
-                    print(content['sTitle'])
-                for process in examContent['aProcess']:
-                    print('', process['iOrder'], process['sAnswer'], sep='\t')
-                print()
+        for examContent in exam(s, show_all):
+            for content in examContent['aContent']:
+                print(content['sTitle'])
+            for process in examContent['aProcess']:
+                print('', process['iOrder'], process['sAnswer'], sep='\t')
+            print()
     elif menu.strip().lower() == 'word train':
         unit = input('单元: ')
         try:

@@ -1,3 +1,13 @@
+def exam(s, show_all):
+    return [
+        s.data.exam_GetExamContent(iExamId=exam['sQuestionIds'])
+        for exam in s.data.homework_GetHomeworkListByStudent(
+            iIsExam=1, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=1)['iCount']
+        )['aHomework']
+        if show_all or not exam['sTimeFlag'] and not int(exam['iFinished'])
+    ]
+
+
 def word_train(s, unit):
     return s.data.word_AddWordTrainDetails(
         iUnit=unit, iTrainId=s.data.word_BeginWordTrain(
