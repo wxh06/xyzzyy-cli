@@ -32,7 +32,7 @@ if __name__ == "__main__":
             show_all = {'': True, 'y': True, 'n': False}[input('\r显示所有（Y/n）：').strip().lower()]
         for examContent in exam(s, show_all):
             for content in examContent['aContent']:
-                print(content['sTitle'])
+                print(content['sGroup'], content['sTitle'])
             for process in examContent['aProcess']:
                 print('', process['iOrder'], process['sAnswer'], sep='\t')
             print()
