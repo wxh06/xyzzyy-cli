@@ -1,8 +1,8 @@
-def exam(s, show_all):
+def exam(s, show_all, is_exam: bool = 1):
     return [
         s.data.exam_GetExamContent(iExamId=exam['sQuestionIds'])
         for exam in s.data.homework_GetHomeworkListByStudent(
-            iIsExam=1, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=1)['iCount']
+            iIsExam=is_exam, iPageCount=s.data.homework_GetHomeworkListByStudent(iIsExam=is_exam)['iCount']
         )['aHomework']
         if show_all or not exam['sTimeFlag'] and not int(exam['iFinished'])
     ]
