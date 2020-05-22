@@ -30,12 +30,13 @@ if __name__ == "__main__":
             show_all = {'是': True, '否': False}[Menu(['是', '否'], '显示所有')()]
         except Exception:
             show_all = {'': True, 'y': True, 'n': False}[input('\r显示所有（Y/n）：').strip().lower()]
-        for examContent in exam(s, show_all):
-            for content in examContent['aContent']:
-                print(content['sGroup'], content['sTitle'])
-            for process in examContent['aProcess']:
-                print('', process['iOrder'], process['sAnswer'], sep='\t')
-            print()
+        for examContent in exam(s, show_all, '0'):
+            if examContent:
+                for content in examContent['aContent']:
+                    print(content['sGroup'], content['sTitle'])
+                for process in examContent['aProcess']:
+                    print('', process['iOrder'], process['sAnswer'], sep='\t')
+                print()
     elif menu.strip().lower() == 'word train':
         unit = input('单元: ')
         try:

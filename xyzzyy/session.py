@@ -31,5 +31,8 @@ class Session:
             urlencode(kwargs).encode(),
             headers={'Cookie': f'pj={self.pj}'}
         )).read())
-        assert data['sRet'] == 'succeeded', data
-        return data
+        try:
+            assert data['sRet'] == 'succeeded', data
+            return data
+        except AssertionError:
+            return None
