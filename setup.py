@@ -8,7 +8,7 @@ setuptools.setup(
     description="校园智障英语",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/wangxinhe2006/xyzzyy",
+    url="https://github.com/wxh06/xyzzyy-cli",
     packages=['xyzzyy'],
     classifiers=[
         "Programming Language :: Python :: 3",
