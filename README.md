@@ -1,5 +1,5 @@
 # 校园智障英语
-[![Build Status](https://www.travis-ci.org/wangxinhe2006/xyzzyy-cli.svg)](https://www.travis-ci.org/wangxinhe2006/xyzzyy-cli)
+[![Build Status](https://travis-ci.com/wxh06/xyzzyy-cli.svg)](https://travis-ci.com/wxh06/xyzzyy-cli)
 
 This is a Python script for finishing the homework automatically on an educational platform in China. If you see this repository by mistake, I'm sorry that it may not be useful to you.
 
