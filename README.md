@@ -1,4 +1,5 @@
 # 校园智障英语
+[![Python package](https://github.com/wxh06/xyzzyy-cli/workflows/Python%20package/badge.svg)](https://github.com/wxh06/xyzzyy-cli/actions?query=workflow%3A%22Python+package%22)
 [![Build Status](https://travis-ci.com/wxh06/xyzzyy-cli.svg)](https://travis-ci.com/wxh06/xyzzyy-cli)
 
 This is a Python script for finishing the homework automatically on an educational platform in China. If you see this repository by mistake, I'm sorry that it may not be useful to you.
